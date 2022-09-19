@@ -148,6 +148,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="../../about.html">Eli Anna Evans</a>
   </li>  
   <li class="nav-item compact">
+    <a class="nav-link" href="https://eliannaevans.github.io"><i class="bi bi-link-45deg" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/eliannaevans"><i class="bi bi-github" role="img">
 </i> 
  </a>
@@ -171,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
                                 <div class="quarto-categories">
                 <div class="quarto-category">data visualization</div>
                 <div class="quarto-category">R</div>
-                <div class="quarto-category">RGrpahics</div>
+                <div class="quarto-category">RGraphics</div>
               </div>
                   </div>
   </div>
@@ -206,15 +211,313 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>This is a post with executable code.</p>
+<section id="paul-murrells-selected-r-examples" class="level3">
+<h3 class="anchored" data-anchor-id="paul-murrells-selected-r-examples">Paul Murrell’s selected R examples</h3>
+<section id="start-plotting-from-basics" class="level4">
+<h4 class="anchored" data-anchor-id="start-plotting-from-basics">Start plotting from basics</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">pch=</span><span class="dv">16</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">150</span>, <span class="dv">600</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">"Pressure (mm Hg)</span><span class="sc">\n</span><span class="st">versus</span><span class="sc">\n</span><span class="st">Temperature (Celsius)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">pch=</span><span class="dv">20</span>) <span class="co"># changed pch for smaller points</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">150</span>, <span class="dv">600</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">"Pressure (mm Hg)</span><span class="sc">\n</span><span class="st">versus</span><span class="sc">\n</span><span class="st">Temperature (Celsius)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="scatterplot" class="level4">
+<h4 class="anchored" data-anchor-id="scatterplot">Scatterplot</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examples of standard high-level plots</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  In each case, extra output is also added using low-level </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  plotting functions.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>)) <span class="co"># Setting the parameter (3 rows by 2 cols)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create scatterplot with incremental additions</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">16</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.3</span>, <span class="fl">1.9</span>, <span class="fl">3.4</span>, <span class="fl">3.9</span>, <span class="fl">4.8</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, .<span class="dv">8</span>, .<span class="dv">5</span>, .<span class="dv">45</span>, .<span class="dv">4</span>, .<span class="dv">3</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting label orientation, margins c(bottom, left, top, right) &amp; text size</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las=</span><span class="dv">1</span>, <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">4</span>), <span class="at">cex=</span>.<span class="dv">7</span>) </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="fu">range</span>(x), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">cex=</span><span class="dv">1</span>) <span class="co"># Try different cex value? -- changed from 2 to 1 for smaller points</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y2, <span class="at">pch=</span><span class="dv">21</span>, <span class="at">bg=</span><span class="st">"lightblue2"</span>, <span class="at">cex=</span><span class="dv">2</span>)  <span class="co"># Different background color -- changed from white to lightblue2</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">col=</span><span class="st">"gray50"</span>, <span class="at">fg=</span><span class="st">"gray50"</span>, <span class="at">col.axis=</span><span class="st">"gray50"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">16</span>, <span class="dv">4</span>)) <span class="co"># What is the first number standing for? -- the first number stands for where the axis should be drawn relative to the plot, with 1=below, 2=left, 3=above and 4=right</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">2</span>))</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">4</span>, <span class="at">at=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">2</span>))</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">bty=</span><span class="st">"u"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Travel Time (s)"</span>, <span class="at">side=</span><span class="dv">1</span>, <span class="at">line=</span><span class="dv">2</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Responses per Travel"</span>, <span class="at">side=</span><span class="dv">2</span>, <span class="at">line=</span><span class="dv">2</span>, <span class="at">las=</span><span class="dv">0</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Responses per Second"</span>, <span class="at">side=</span><span class="dv">4</span>, <span class="at">line=</span><span class="dv">2</span>, <span class="at">las=</span><span class="dv">0</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="st">"Bird 131"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>), <span class="at">col=</span><span class="st">"black"</span>, <span class="at">fg=</span><span class="st">"black"</span>, <span class="at">col.axis=</span><span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="histogram" class="level4">
+<h4 class="anchored" data-anchor-id="histogram">Histogram</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Random data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure no Y exceed [-3.5, 3.5]</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Y[Y <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span> <span class="sc">|</span> Y <span class="sc">&gt;=</span> <span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># Selection/set range -- range chnaged from (-3.5, 3.5) to [-3, 4]</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">3.5</span>, <span class="fl">3.5</span>, .<span class="dv">1</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>dn <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">4.5</span>, <span class="fl">4.1</span>, <span class="fl">3.1</span>, <span class="dv">0</span>))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Y, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="fl">3.5</span>, <span class="fl">3.5</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>), </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">"lightgoldenrod2"</span>, <span class="at">freq=</span><span class="cn">FALSE</span>) <span class="co"># col changed from grey80 to lightgoldenrod2</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="fu">dnorm</span>(x), <span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="barplot" class="level4">
+<h4 class="anchored" data-anchor-id="barplot">Barplot</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">3.1</span>, <span class="dv">2</span>, <span class="fl">2.1</span>)) </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>midpts <span class="ot">&lt;-</span> <span class="fu">barplot</span>(VADeaths, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.1</span> <span class="sc">+</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">2</span>)<span class="sc">/</span><span class="dv">11</span>), </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names=</span><span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">4</span>))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">sub</span>(<span class="st">" "</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">colnames</span>(VADeaths)),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">at=</span>midpts, <span class="at">side=</span><span class="dv">1</span>, <span class="at">line=</span><span class="fl">0.5</span>, <span class="at">cex=</span><span class="fl">0.75</span>) <span class="co"># setting text below plot corresponding to column names -- made text bigger for better readability by changing cex from 0.5 to 0.75</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fu">rep</span>(midpts, <span class="at">each=</span><span class="dv">5</span>), <span class="fu">apply</span>(VADeaths, <span class="dv">2</span>, cumsum) <span class="sc">-</span> VADeaths<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>     VADeaths, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"black"</span>), <span class="at">times=</span><span class="dv">3</span><span class="sc">:</span><span class="dv">2</span>), </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="perspective-plot" class="level4">
+<h4 class="anchored" data-anchor-id="perspective-plot">Perspective Plot</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length=</span> <span class="dv">30</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) { r <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>y<span class="sc">^</span><span class="dv">2</span>); <span class="dv">10</span> <span class="sc">*</span> <span class="fu">sin</span>(r)<span class="sc">/</span>r }</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">outer</span>(x, y, f)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>z[<span class="fu">is.na</span>(z)] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 to include z axis label</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">lwd=</span><span class="fl">0.2</span>) <span class="co"># lwd changed from 0.5 to 0.2 for lighter line width</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(x, y, z, <span class="at">theta =</span> <span class="dv">30</span>, <span class="at">phi =</span> <span class="dv">30</span>, </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">expand =</span> <span class="fl">0.2</span>) <span class="co"># expand changed from 0.5 to 0.2 to shrink plot in z </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>), <span class="at">lwd=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="piechart" class="level4">
+<h4 class="anchored" data-anchor-id="piechart">Piechart</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">xpd=</span><span class="cn">FALSE</span>, <span class="at">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pie.sales <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.12</span>, <span class="fl">0.01</span>, <span class="fl">0.26</span>, <span class="fl">0.45</span>, <span class="fl">0.04</span>, <span class="fl">0.12</span>) <span class="co"># redistributed value originally belonging to Cherry to Ginger Pear</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pie.sales) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Blueberry"</span>, <span class="st">"Cherry"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"Apple"</span>, <span class="st">"Ginger Pear"</span>, <span class="st">"Other"</span>, <span class="st">"Vanilla"</span>) <span class="co"># pie sales column name changed from Boston Cream to Ginger Pear</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(pie.sales, <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="fl">0.3</span>,<span class="fl">1.0</span>,<span class="at">length=</span><span class="dv">6</span>))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<section id="read-happy-planet-data-happyplanetindex.org" class="level4">
+<h4 class="anchored" data-anchor-id="read-happy-planet-data-happyplanetindex.org">Read Happy Planet Data, <em>happyplanetindex.org</em></h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
+✔ tibble  3.1.8      ✔ dplyr   1.0.10
+✔ tidyr   1.2.1      ✔ stringr 1.4.1 
+✔ readr   2.1.2      ✔ forcats 0.5.2 
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"assignment02_happyPlanetData.xlsx"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(path, <span class="at">sheet =</span> <span class="st">"1. All countries"</span>, <span class="at">range=</span><span class="st">"A9:L161"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...4`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hpi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>    HPI rank        Country              ISO                ...4          
+ Min.   :  1.00   Length:152         Length:152         Length:152        
+ 1st Qu.: 38.75   Class :character   Class :character   Class :character  
+ Median : 76.50   Mode  :character   Mode  :character   Mode  :character  
+ Mean   : 76.50                                                           
+ 3rd Qu.:114.25                                                           
+ Max.   :152.00                                                           
+   Continent     Population (thousands) Life Expectancy (years)
+ Min.   :1.000   Min.   :    299.9      Min.   :53.30          
+ 1st Qu.:3.000   1st Qu.:   4970.4      1st Qu.:67.25          
+ Median :5.000   Median :  11521.8      Median :74.65          
+ Mean   :4.717   Mean   :  49738.8      Mean   :73.06          
+ 3rd Qu.:7.000   3rd Qu.:  37530.2      3rd Qu.:78.62          
+ Max.   :8.000   Max.   :1433783.7      Max.   :84.90          
+ Ladder of life (Wellbeing) (0-10) Ecological Footprint (g ha)      HPI       
+ Min.   :2.375                     Min.   : 0.5157             Min.   :24.33  
+ 1st Qu.:4.819                     1st Qu.: 1.5019             1st Qu.:39.32  
+ Median :5.526                     Median : 2.5710             Median :44.70  
+ Mean   :5.532                     Mean   : 3.3252             Mean   :44.55  
+ 3rd Qu.:6.282                     3rd Qu.: 4.4461             3rd Qu.:50.87  
+ Max.   :7.780                     Max.   :15.0376             Max.   :62.06  
+ Biocapacity for year \r\n(g ha) GDP per capita ($)
+ Min.   :1.56                    Length:152        
+ 1st Qu.:1.56                    Class :character  
+ Median :1.56                    Mode  :character  
+ Mean   :1.56                                      
+ 3rd Qu.:1.56                                      
+ Max.   :1.56                                      </code></pre>
+</div>
+</div>
+</section>
+<section id="data-preprocessing-using-names" class="level4">
+<h4 class="anchored" data-anchor-id="data-preprocessing-using-names">Data Preprocessing using names()</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> <span class="fu">subset</span>(hpi, <span class="at">select=</span><span class="sc">-</span>...<span class="dv">4</span>) <span class="co"># drop ...4 column</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(hpi) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'rank'</span>, <span class="st">'country'</span>, <span class="st">'iso'</span>, <span class="st">'continent'</span>, <span class="st">'population'</span>, <span class="st">'life_exp'</span>, <span class="st">'wellbeing'</span>, <span class="st">'footprint'</span>, <span class="st">'hpi'</span>, <span class="st">'biocapacity'</span>, <span class="st">'gdp'</span>) <span class="co"># rename columns</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(hpi<span class="sc">$</span>gdp) <span class="ot">=</span> <span class="st">"double"</span> <span class="co"># set gdp from character to double</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in class(hpi$gdp) = "double": NAs introduced by coercion</code></pre>
+</div>
+</div>
+</section>
+<section id="par" class="level4">
+<h4 class="anchored" data-anchor-id="par">par()</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las=</span><span class="dv">1</span>, <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">3</span>), <span class="at">cex=</span><span class="fl">1.0</span>) <span class="co"># labels alwayshorizontal, margins 5 for bottom/left, 3 for top/right, text size large at 1.0</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>gdp, hpi<span class="sc">$</span>hpi, <span class="at">xlab=</span><span class="st">"GDP per capita ($)"</span>, <span class="at">ylab=</span><span class="st">"Happy Planet Index"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="lines-points-axis-box-text-and-mtext" class="level4">
+<h4 class="anchored" data-anchor-id="lines-points-axis-box-text-and-mtext">lines(), points(), axis(), box(), text(), and mtext()</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set data to use</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> hpi<span class="sc">$</span>gdp</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> hpi<span class="sc">$</span>hpi</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las=</span><span class="dv">1</span>, <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">cex=</span><span class="fl">0.75</span>) <span class="co"># set label orientation, margins, text size</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="fu">range</span>(<span class="dv">20</span>, <span class="dv">65</span>), <span class="fu">range</span>(<span class="dv">750</span>, <span class="dv">115000</span>)) <span class="co"># create plot window with given limits for x and y</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y) <span class="co"># create simple line plot</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y, <span class="at">cex=</span>.<span class="dv">5</span>) <span class="co"># add points to line plot</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">which=</span><span class="st">"plot"</span>) <span class="co"># create box around plot</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x=</span><span class="dv">55</span>, <span class="at">y=</span><span class="dv">100000</span>, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"GDP per capita ($) vs. HPI"</span>)) <span class="co"># write text at coordinates(2,2)</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Example plot made by layering base attributes"</span>, <span class="at">side=</span><span class="dv">3</span>, <span class="at">line=</span><span class="dv">1</span>) <span class="co"># write caption at top of plot</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at=</span><span class="fu">c</span>(<span class="dv">750</span>, <span class="dv">25000</span>, <span class="dv">50000</span>, <span class="dv">75000</span>, <span class="dv">100000</span>, <span class="dv">115000</span>)) <span class="co"># draw y axis</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at=</span><span class="fu">c</span>(<span class="fl">24.3</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="fl">62.1</span>)) <span class="co"># dram x axis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="hist" class="level4">
+<h4 class="anchored" data-anchor-id="hist">hist()</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">col=</span><span class="st">"lightblue"</span>, <span class="at">border=</span><span class="st">"firebrick"</span>, <span class="at">xlab=</span><span class="st">"HPI"</span>, <span class="at">main=</span><span class="st">"Histogram of Happy Planet Index Scores"</span>) <span class="co"># create histogram, specifying bar fill and line color, x-axis label, and main label</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="boxplot" class="level4">
+<h4 class="anchored" data-anchor-id="boxplot">boxplot()</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>y_boxplot <span class="ot">&lt;-</span> <span class="fu">head</span>(hpi<span class="sc">$</span>hpi[<span class="fu">order</span>(hpi<span class="sc">$</span>rank)], <span class="dv">5</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>grp <span class="ot">&lt;-</span> <span class="fu">head</span>(hpi<span class="sc">$</span>country[<span class="fu">order</span>(hpi<span class="sc">$</span>rank)], <span class="dv">5</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(y_boxplot <span class="sc">~</span> grp, <span class="at">xlab=</span><span class="st">'Country'</span>, <span class="at">ylab=</span><span class="st">'HPI'</span>) <span class="co"># boxplot of top 5 countries in hpi based on HPI rank</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+<section id="legend" class="level4">
+<h4 class="anchored" data-anchor-id="legend">legend()</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> hpi<span class="sc">$</span>population</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las=</span><span class="dv">1</span>, <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">cex=</span><span class="fl">0.75</span>) <span class="co"># set label orientation, margins, text size</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="fu">range</span>(<span class="dv">20</span>, <span class="dv">65</span>), <span class="fu">range</span>(<span class="dv">750</span>, <span class="dv">1500000</span>)) <span class="co"># create plot window with given limits for x and </span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># hpi vs. population</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2, <span class="at">col=</span><span class="st">'darkorchid2'</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y2, <span class="at">cex=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">'darkorchid2'</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># hpi vs. gdp</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y, <span class="at">col=</span><span class="st">"royalblue2"</span>) <span class="co"># create simple line plot</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y, <span class="at">cex=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">'royalblue2'</span>, <span class="at">lwd=</span><span class="dv">2</span>) <span class="co"># add points to line plot</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">which=</span><span class="st">"plot"</span>) <span class="co"># create box around plot</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Example plot with legend"</span>, <span class="at">side=</span><span class="dv">3</span>, <span class="at">line=</span><span class="dv">1</span>, <span class="at">cex=</span><span class="fl">1.5</span>) <span class="co"># write caption at top of plot</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"HPI"</span>, <span class="at">side=</span><span class="dv">1</span>, <span class="at">line=</span><span class="dv">3</span>, <span class="at">cex=</span><span class="dv">1</span>) <span class="co"># write x-axis title</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at=</span><span class="fu">c</span>(<span class="dv">750</span>, <span class="dv">250000</span>, <span class="dv">500000</span>, <span class="dv">750000</span>, <span class="dv">1000000</span>, <span class="dv">1250000</span>, <span class="dv">1500000</span>)) <span class="co"># draw y axis</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at=</span><span class="fu">c</span>(<span class="fl">24.3</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="fl">62.1</span>)) <span class="co"># dram x axis</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="co"># create legende</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x=</span><span class="dv">50</span>, <span class="at">y=</span><span class="dv">1250000</span>, <span class="fu">c</span>(<span class="st">"GDP per capita ($)"</span>, <span class="st">"Population"</span>), <span class="at">fill=</span><span class="fu">c</span>(<span class="st">"royalblue2"</span>, <span class="st">"darkorchid2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="persp" class="level4">
+<h4 class="anchored" data-anchor-id="persp">persp()</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las=</span><span class="dv">1</span>, <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">cex=</span><span class="dv">1</span>) <span class="co"># set label orientation, margins, text size</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>hpi_matrix <span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">subset</span>(hpi, <span class="at">select=</span><span class="fu">c</span>(<span class="sc">-</span>country, <span class="sc">-</span>iso))) <span class="co"># take out character values and change from dataframe to matrix</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(<span class="at">z=</span>hpi_matrix, <span class="at">zlab=</span><span class="st">"HPI"</span>, <span class="at">expand=</span><span class="fl">0.2</span>, <span class="at">main=</span><span class="st">"Perspective plot of HPI"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="pie" class="level4">
+<h4 class="anchored" data-anchor-id="pie">pie()</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las=</span><span class="dv">1</span>, <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">cex=</span><span class="dv">1</span>) <span class="co"># set label orientation, margins, text size</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">head</span>(hpi<span class="sc">$</span>population), <span class="at">labels=</span><span class="fu">head</span>(hpi<span class="sc">$</span>country), <span class="at">main=</span><span class="st">"Population by Country"</span>) <span class="co"># create pit chart of first 6 country's populations, usning the country name column as labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
