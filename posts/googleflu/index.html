@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Eli Evans">
+<meta name="dcterms.date" content="2022-09-24">
 
-<title>Data Visualization Blog - Eli Anna Evans</title>
+<title>Data Visualization Blog - Google Flu and Big Data Anayltics Pitfalls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,7 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -69,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data Visualization Blog</span>
     </a>
   </div>
@@ -79,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page">Eli Anna Evans</a>
+    <a class="nav-link" href="../../about.html">Eli Anna Evans</a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://eliannaevans.github.io"><i class="bi bi-link-45deg" role="img">
@@ -108,52 +111,66 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Google Flu and Big Data Anayltics Pitfalls</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Data Visualization</div>
+                <div class="quarto-category">Big Data</div>
+                <div class="quarto-category">Overfitting</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Eli Evans </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 24, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-broadside column-page">
-  <div class="about-main">
-    <div class="about-entity" style="background-image: url('profilePicture.png')"></div>
-    <div class="about-contents"><header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Eli Anna Evans</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>I am a Master’s student studying Applied Cognition and Neuroscience at the University of Texas at Dallas, specializing in Intelligent Systems. I am especially interested in adversarial artificial intelligence and the role machine learning can play in assistive technology for neurodiverse people.</p>
-<p>This blog was created for my Data Visualization course taken in Fall 2022. Currently, I plan to post my finished assignments for this course in this space, and may use this blog for my personal reference, posting academic papers and summaries for myself to review.</p>
-<p><em>Blog last updated: 2022-09-24</em></p>
-<section id="contact" class="level3">
-<h3 data-anchor-id="contact">Contact</h3>
-<p><a href="mailto:axe190014@utdallas.edu">axe190014@utdallas.edu</a></p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="big-data-analytics-pitfalls" class="level3">
+<h3 class="anchored" data-anchor-id="big-data-analytics-pitfalls">Big Data Analytics Pitfalls</h3>
+<p>Notes on Nature’s article “When Google got flu wrong”, link <a href="https://www.nature.com/articles/494155a">here</a>.</p>
+<p>Google Flu Trend’s occasional large differences in predicted flu levels compared to the CDC’s surveillance is due in part to that Google’s estimations were based on search traffic for flu, data which can be influenced by factors other than if people have flu symptoms. For example, in 2009 and 2013, due to the novelness of swine flu and large media coverage of flu season, respectively, Google Flu Trends overestimated the percentage of the US population with flu symptoms. This shows that data used for these large-scale algorithms should be monitored and adjusted to control for extraneous factors.</p>
+</section>
+<section id="overfitting" class="level3">
+<h3 class="anchored" data-anchor-id="overfitting">Overfitting</h3>
+<p>Notes on Science’s article “Google’s Big Data Flu Flop”, link <a href="https://www.science.org/content/blog-post/google-s-big-data-flu-flop">here</a>.</p>
+<p>Another issue with Google Flu Trend’s data is that it takes all search terms correlated with flu cases, and because flu is typically seasonal, this includes searches for unrelated events that occur during flu season. Google Flu Trends shows evidence of overfitting to this unrelated data, and this overfitting leads to errors.</p>
+</section>
+<section id="final-notes" class="level3">
+<h3 class="anchored" data-anchor-id="final-notes">Final Notes</h3>
+<p>Both of the aforementioned articles make a larger point that dig data solutions, such as Google Flu, are not substitutes for more traditional solutions like the CDC’s data collection, but are there to supplement more traditional solutions. Furthermore, the method of collection for many sources of big data, such as Twitter or Google searches, are not held held to the same standards that data collected for experimental anaylsis would be, and if the data itself is flawed, algorithms to parse the data will be flawed as well.</p>
 
 
 </section>
-</main></div>
-  </div>
-  <div class="about-links">
-  <a href="https://eliannaevans.github.io" class="about-link">
-    <i class="bi bi-link-45deg"></i>
-     <span class="about-link-text">Website</span>
-  </a>
-  <a href="https://eliannaevans.github.io/resume.pdf" class="about-link">
-    <i class="bi bi-file-earmark-text"></i>
-     <span class="about-link-text">Resume</span>
-  </a>
-  <a href="https://github.com/eliananevans" class="about-link">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://www.linkedin.com/in/anna-evans-9a03a0206/" class="about-link">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -174,6 +191,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;
