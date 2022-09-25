@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Eli Evans">
+<meta name="dcterms.date" content="2022-09-25">
 
-<title>Data Visualization Blog - Eli Anna Evans</title>
+<title>Data Visualization Blog - Hadley Wickham on Data Visualization and Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,7 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -69,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data Visualization Blog</span>
     </a>
   </div>
@@ -79,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page">Eli Anna Evans</a>
+    <a class="nav-link" href="../../about.html">Eli Anna Evans</a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://eliannaevans.github.io"><i class="bi bi-link-45deg" role="img">
@@ -108,52 +111,72 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Hadley Wickham on Data Visualization and Data Science</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Data Visualization</div>
+                <div class="quarto-category">ggplot2</div>
+                <div class="quarto-category">tidyverse</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Eli Evans </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 25, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-broadside column-page">
-  <div class="about-main">
-    <div class="about-entity" style="background-image: url('profilePicture.png')"></div>
-    <div class="about-contents"><header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Eli Anna Evans</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>I am a Master’s student studying Applied Cognition and Neuroscience at the University of Texas at Dallas, specializing in Intelligent Systems. I am especially interested in adversarial artificial intelligence and the role machine learning can play in assistive technology for neurodiverse people.</p>
-<p>This blog was created for my Data Visualization course taken in Fall 2022. Currently, I plan to post my finished assignments for this course in this space, and may use this blog for my personal reference, posting academic papers and summaries for myself to review.</p>
-<p><em>Blog last updated: 2022-09-25</em></p>
-<section id="contact" class="level3">
-<h3 data-anchor-id="contact">Contact</h3>
-<p><a href="mailto:axe190014@utdallas.edu">axe190014@utdallas.edu</a></p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="embl-keynote-lecture-on-data-visualization-and-data-sceince" class="level2">
+<h2 class="anchored" data-anchor-id="embl-keynote-lecture-on-data-visualization-and-data-sceince">EMBL Keynote Lecture on Data Visualization and Data Sceince</h2>
+<p>The YouTube link to a recording of the keynote lecture by Hadley Wickham can be found <a href="https://www.youtube.com/watch?v=9YTNYT1maa4&amp;ab_channel=EuropeanMolecularBiologyLaboratory%28EMBL%29">here</a>.</p>
+<section id="key-technologies-and-techniques" class="level3">
+<h3 class="anchored" data-anchor-id="key-technologies-and-techniques">Key technologies and techniques</h3>
+<p>Wickham mentions the lattice package they created for biology data, which they found many issues with. After reading Grammar of Graphics, they created ggplot as a open-source utilization of the outlined priciples. For aggregating data, Wickham created the reshape, reshape2, and tidyr packages. They also mention the plyr package, which was split into dplyr and purrr for modern use. Tidyverse organizes ggplot2, dplyr, purrr, and tidyr with shared conventions to make learning each new package easier. A gganimate package has also been created to animate any ggplot2 function over time, and the ggseq package helps visualize areas of the brain with brain atlases.</p>
+</section>
+<section id="notes" class="level3">
+<h3 class="anchored" data-anchor-id="notes">Notes</h3>
+<ul>
+<li><p>Wickham defines “tidy” data as data that’s not necessarily clean, but is organized to allow analyzation with attributes as columns and observations as rows.</p></li>
+<li><p>A main idea of data visualization is mapping between variables and what you can perceive.</p></li>
+<li><p>Code is powerful because it is text, allowing easy collaboration and recreation. Because it is a series of steps, debugging becomes easier because you can see every step you took in the last run, edit it, and iterate. These steps can also be reused when data updates, because the plots can be updated as well using the code from the previous code iteration.</p></li>
+</ul>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>Wickham’s keynote talk is directed towards people who currently visualize data through more traditional means such as pen and paper and introduces them to the possibility of utilizing code to create visualizations. They emphasize the goal of tidyverse: to make code for visualizations pronounceable and productive results easy to achieve. Wickham also discusses the process to create visualizations, wherein early plots require little code and are helpful for those familiar with the data and later plots for the general public require more code. Hadley Wickham additionally stresses the reproducability and long-term aid of code in creating visualizations, and showcases emerging packages that aid interactability and specific domains.</p>
 
 
 </section>
-</main></div>
-  </div>
-  <div class="about-links">
-  <a href="https://eliannaevans.github.io" class="about-link">
-    <i class="bi bi-link-45deg"></i>
-     <span class="about-link-text">Website</span>
-  </a>
-  <a href="https://eliannaevans.github.io/resume.pdf" class="about-link">
-    <i class="bi bi-file-earmark-text"></i>
-     <span class="about-link-text">Resume</span>
-  </a>
-  <a href="https://github.com/eliananevans" class="about-link">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://www.linkedin.com/in/anna-evans-9a03a0206/" class="about-link">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -174,6 +197,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;

@@ -21,17 +21,24 @@
     "text": "By definition, generative art is art created by a computer system, either through a specified algorithm or with intentional randomness in the creation process. A few examples of generative art are shared below.\n\n\n\nGenerative art made by the Journal of Digital History using the R generative art package created by Katharina Brunner\n\n\nSource: c2dh.uni.lu/projects/journal-digital-history\n\n\n\nGenerative art by Mark J. Stock\n\n\nSource: markjstock.com\n\n\n\nGenerative art created in JavaScript by Espen Kluge\n\n\nSource: espen.xyz\n\n\n\nGenerated art from Fall.R with color lightsteelblue2\n\n\nSource: github.com/datageneration/datavisualization"
   },
   {
+    "objectID": "posts/wickhamvideo/index.html",
+    "href": "posts/wickhamvideo/index.html",
+    "title": "Hadley Wickham on Data Visualization and Data Science",
+    "section": "",
+    "text": "The YouTube link to a recording of the keynote lecture by Hadley Wickham can be found here.\n\n\nWickham mentions the lattice package they created for biology data, which they found many issues with. After reading Grammar of Graphics, they created ggplot as a open-source utilization of the outlined priciples. For aggregating data, Wickham created the reshape, reshape2, and tidyr packages. They also mention the plyr package, which was split into dplyr and purrr for modern use. Tidyverse organizes ggplot2, dplyr, purrr, and tidyr with shared conventions to make learning each new package easier. A gganimate package has also been created to animate any ggplot2 function over time, and the ggseq package helps visualize areas of the brain with brain atlases.\n\n\n\n\nWickham defines “tidy” data as data that’s not necessarily clean, but is organized to allow analyzation with attributes as columns and observations as rows.\nA main idea of data visualization is mapping between variables and what you can perceive.\nCode is powerful because it is text, allowing easy collaboration and recreation. Because it is a series of steps, debugging becomes easier because you can see every step you took in the last run, edit it, and iterate. These steps can also be reused when data updates, because the plots can be updated as well using the code from the previous code iteration.\n\n\n\n\nWickham’s keynote talk is directed towards people who currently visualize data through more traditional means such as pen and paper and introduces them to the possibility of utilizing code to create visualizations. They emphasize the goal of tidyverse: to make code for visualizations pronounceable and productive results easy to achieve. Wickham also discusses the process to create visualizations, wherein early plots require little code and are helpful for those familiar with the data and later plots for the general public require more code. Hadley Wickham additionally stresses the reproducability and long-term aid of code in creating visualizations, and showcases emerging packages that aid interactability and specific domains."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Data Visualization\n\n\nBig Data\n\n\nOverfitting\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nRGraphics\n\n\n\n\n\n\n\n\n\n\n\nSep 18, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nGenerative Art\n\n\n\n\n\n\n\n\n\n\n\nSep 13, 2022\n\n\nEli Evans\n\n\n\n\n\n\nNo matching items"
+    "text": "Data Visualization\n\n\nggplot2\n\n\ntidyverse\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nBig Data\n\n\nOverfitting\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nRGraphics\n\n\n\n\n\n\n\n\n\n\n\nSep 18, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nGenerative Art\n\n\n\n\n\n\n\n\n\n\n\nSep 13, 2022\n\n\nEli Evans\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Eli Anna Evans",
     "section": "",
-    "text": "This blog was created for my Data Visualization course taken in Fall 2022. Currently, I plan to post my finished assignments for this course in this space, and may use this blog for my personal reference, posting academic papers and summaries for myself to review.\nBlog last updated: 2022-09-24\n\nContact\naxe190014@utdallas.edu"
+    "text": "This blog was created for my Data Visualization course taken in Fall 2022. Currently, I plan to post my finished assignments for this course in this space, and may use this blog for my personal reference, posting academic papers and summaries for myself to review.\nBlog last updated: 2022-09-25\n\nContact\naxe190014@utdallas.edu"
   }
 ]
