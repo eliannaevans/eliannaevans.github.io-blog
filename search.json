@@ -14,6 +14,13 @@
     "text": "Change chart without using other packages\n\npar(las=1, mar=c(5, 5, 3, 1) + 0.1, cex=1.1) # set label orientation, margins, text size\n\n# plot from above\nlm2 <- lm(y2 ~ x2, data=anscombe)\nplot(anscombe$x2,anscombe$y2, xlab=\"x2\", ylab=\"y2\", asp=0.75, col= \"lightblue3\") # change label text, aspect ratio, color\nabline(coefficients(lm2), col=\"darkorchid4\") # change line color\n\n\n\n\n\n\nChange chart with ggplot2\n\nlibrary(ggplot2)\nggplot(anscombe, aes(x=x2,y=y2)) + # create coordinate system\n  geom_abline(col=\"darkorchid4\") + # create line  with custom color\n  geom_point(col=\"lightblue3\", lwd=3) + # create points with custom size and color\n  xlab(\"x\") + # change x label\n  ylab(\"y\") + # change y label\n  scale_y_continuous(limits=c(2, 10)) + # change y axis limits\n  scale_x_continuous(limits=c(4, 15))   # change x axis limits"
   },
   {
+    "objectID": "posts/literateprogramming/index.html",
+    "href": "posts/literateprogramming/index.html",
+    "title": "Literate Prgramming - Knuth",
+    "section": "",
+    "text": "Source: Literate Programming, Knuth 1984\nIn “Literate Programming,” Knuth attempts to introduce a method of programming wherein programmers code with humans in mind rather than machines. To accomplish human readability, Knuth proposes use of source code and text in chunks, and demonstrates this idea through their language WEB by writing basic programs such as generating prime numbers.\n“Literate Programming” and the WEB language are important to today’s programmers, data scientists, and data visualizers because it was the first step towards text-code combinations such as Jupyter notebooks or RMarkdown that are widely used today. I find the combination of source code and text attractive because it place comments and explanations of code at the forefront. By placing text as a partner to code, programmers may keep human readability in mind more than they would if they could postpone explanation to a simple comment later. Additionally, a text-code combination allows code to feel less intimidating to newcomers and more similar to the potentially more comfortable essay."
+  },
+  {
     "objectID": "posts/googleflu/index.html",
     "href": "posts/googleflu/index.html",
     "title": "Google Flu and Big Data Anayltics Pitfalls",
@@ -39,13 +46,13 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Data Visualization\n\n\nR Graphics\n\n\nggplot2\n\n\ntidyverse\n\n\n\n\n\n\n\n\n\n\n\nSep 26, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nggplot2\n\n\ntidyverse\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nBig Data\n\n\nOverfitting\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nRGraphics\n\n\n\n\n\n\n\n\n\n\n\nSep 18, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nGenerative Art\n\n\n\n\n\n\n\n\n\n\n\nSep 13, 2022\n\n\nEli Evans\n\n\n\n\n\n\nNo matching items"
+    "text": "Data Visualization\n\n\nText with Code\n\n\n\n\n\n\n\n\n\n\n\nOct 11, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR Graphics\n\n\nggplot2\n\n\ntidyverse\n\n\n\n\n\n\n\n\n\n\n\nSep 26, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nggplot2\n\n\ntidyverse\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nBig Data\n\n\nOverfitting\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nRGraphics\n\n\n\n\n\n\n\n\n\n\n\nSep 18, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nGenerative Art\n\n\n\n\n\n\n\n\n\n\n\nSep 13, 2022\n\n\nEli Evans\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Eli Anna Evans",
     "section": "",
-    "text": "This blog was created for my Data Visualization course taken in Fall 2022. Currently, I plan to post my finished assignments for this course in this space, and may use this blog for my personal reference, posting academic papers and summaries for myself to review.\nBlog last updated: 2022-09-26\n\nContact\naxe190014@utdallas.edu"
+    "text": "This blog was created for my Data Visualization course taken in Fall 2022. Currently, I plan to post my finished assignments for this course in this space, and may use this blog for my personal reference, posting academic papers and summaries for myself to review.\nBlog last updated: 2022-10-11\n\nContact\naxe190014@utdallas.edu"
   }
 ]
