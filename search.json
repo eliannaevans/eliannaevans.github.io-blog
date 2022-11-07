@@ -28,6 +28,13 @@
     "text": "We were tasked to edit a D3 Bar Chart example graph to work with our project data. Here is a link to my Observable fork of a Bar Chart example using project data. It shows the number of participants in each school of study (relative to UTD schools) for a speed dating experiment."
   },
   {
+    "objectID": "posts/d3shinyggplot2differences/index.html",
+    "href": "posts/d3shinyggplot2differences/index.html",
+    "title": "Differences Between D3, Shiny, and ggplot2",
+    "section": "",
+    "text": "Customization Ability\nD3 is most similar to the graphics package in R in that plots are built from the ground up and each component is individually specified. While writing a graph from scratch with D3 would be tedious, it would be significantly more customizable in form and interactivity than either Shiny or ggplot2. Because Shiny can use graphics, ggplot2, or any other graphing package within R, it has a high amount of customizability in the graphs displayed, however its interacitibility is more limited because the user is restricted to updating input and display components built into Shiny. ggplot2 similarly limits the user to geoms and specific ggplot2 functions for editing graphs.\nWhile D3 is more customizable, Shiny and ggplot2 are easier to use and create more polished products with less time and effort."
+  },
+  {
     "objectID": "posts/literateprogramming/index.html",
     "href": "posts/literateprogramming/index.html",
     "title": "Literate Prgramming - Knuth",
@@ -67,7 +74,7 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Data Visualization\n\n\nJavaScript\n\n\nD3\n\n\n\n\n\n\n\n\n\n\n\nNov 6, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nMusic\n\n\n\n\n\n\n\n\n\n\n\nOct 15, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\ntidyverse\n\n\nggplot2\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 12, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nText with Code\n\n\n\n\n\n\n\n\n\n\n\nOct 11, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR Graphics\n\n\nggplot2\n\n\ntidyverse\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nSep 26, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nggplot2\n\n\ntidyverse\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nBig Data\n\n\nOverfitting\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nRGraphics\n\n\n\n\n\n\n\n\n\n\n\nSep 18, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nGenerative Art\n\n\n\n\n\n\n\n\n\n\n\nSep 13, 2022\n\n\nEli Evans\n\n\n\n\n\n\nNo matching items"
+    "text": "Data Visualization\n\n\nJavaScript\n\n\nD3\n\n\n\n\n\n\n\n\n\n\n\nNov 6, 2022\n\n\nEli Evans\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nJavaScript\n\n\nD3\n\n\nShiny\n\n\nggplot2\n\n\ntidyverse\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nNov 6, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nMusic\n\n\n\n\n\n\n\n\n\n\n\nOct 15, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\ntidyverse\n\n\nggplot2\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 12, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nText with Code\n\n\n\n\n\n\n\n\n\n\n\nOct 11, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nRGraphics\n\n\nggplot2\n\n\ntidyverse\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nSep 26, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nggplot2\n\n\ntidyverse\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nBig Data\n\n\nOverfitting\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nRGraphics\n\n\n\n\n\n\n\n\n\n\n\nSep 18, 2022\n\n\nEli Evans\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\nGenerative Art\n\n\n\n\n\n\n\n\n\n\n\nSep 13, 2022\n\n\nEli Evans\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
