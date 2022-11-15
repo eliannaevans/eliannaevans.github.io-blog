@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/spatialdata/index.html",
       "/posts/d3barchartexample/index.html",
       "/posts/d3shinyggplot2differences/index.html",
       "/posts/musicvisualization/index.html",
