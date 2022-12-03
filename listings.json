@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/authorComparison/index.html",
+      "/posts/timeSeriesData/index.html",
       "/posts/spatialdata/index.html",
       "/posts/d3barchartexample/index.html",
       "/posts/d3shinyggplot2differences/index.html",
@@ -11,6 +13,7 @@
       "/posts/assignment03/index.html",
       "/posts/wickhamvideo/index.html",
       "/posts/googleflu/index.html",
+      "/posts/tufteLecture/index.html",
       "/posts/assignment02/index.html",
       "/posts/assignment01/index.html"
     ]

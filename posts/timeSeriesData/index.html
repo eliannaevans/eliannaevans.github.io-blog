@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eli Evans">
-<meta name="dcterms.date" content="2022-09-24">
+<meta name="dcterms.date" content="2022-12-02">
 
-<title>Data Visualization Blog - Google Flu and Big Data Anayltics Pitfalls</title>
+<title>Data Visualization Blog - Time Series Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,12 +114,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Google Flu and Big Data Anayltics Pitfalls</h1>
+      <h1 class="title">Time Series Data</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Data Visualization</div>
-                <div class="quarto-category">Big Data</div>
-                <div class="quarto-category">Overfitting</div>
-                <div class="quarto-category">Prepare for Class 05</div>
+                <div class="quarto-category">Prepare for Class 11</div>
+                <div class="quarto-category">Time Series Data</div>
               </div>
                   </div>
   </div>
@@ -137,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 24, 2022</p>
+        <p class="date">December 2, 2022</p>
       </div>
     </div>
       
@@ -154,19 +153,34 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="big-data-analytics-pitfalls" class="level3">
-<h3 class="anchored" data-anchor-id="big-data-analytics-pitfalls">Big Data Analytics Pitfalls</h3>
-<p>Notes on Nature’s article “When Google got flu wrong”, link <a href="https://www.nature.com/articles/494155a">here</a>.</p>
-<p>Google Flu Trend’s occasional large differences in predicted flu levels compared to the CDC’s surveillance is due in part to that Google’s estimations were based on search traffic for flu, data which can be influenced by factors other than if people have flu symptoms. For example, in 2009 and 2013, due to the novelness of swine flu and large media coverage of flu season, respectively, Google Flu Trends overestimated the percentage of the US population with flu symptoms. This shows that data used for these large-scale algorithms should be monitored and adjusted to control for extraneous factors.</p>
+<section id="dependency" class="level3">
+<h3 class="anchored" data-anchor-id="dependency">Dependency</h3>
+<ul>
+<li><p>Temporal dependency: future observations are impacted by previous observations</p></li>
+<li><p>Spatial dependency: observed points being further away from each other or closer together than expected from random data</p></li>
+</ul>
 </section>
-<section id="overfitting" class="level3">
-<h3 class="anchored" data-anchor-id="overfitting">Overfitting</h3>
-<p>Notes on Science’s article “Google’s Big Data Flu Flop”, link <a href="https://www.science.org/content/blog-post/google-s-big-data-flu-flop">here</a>.</p>
-<p>Another issue with Google Flu Trend’s data is that it takes all search terms correlated with flu cases, and because flu is typically seasonal, this includes searches for unrelated events that occur during flu season. Google Flu Trends shows evidence of overfitting to this unrelated data, and this overfitting leads to errors.</p>
+<section id="time-series-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="time-series-concepts">Time Series Concepts</h3>
+<ul>
+<li><p>ARIMA: autoregressive integrated moving average, model used for predicting future observations based on past observations, assumes future model follows from past so unexpected changes would not be predicted</p>
+<ul>
+<li><p>p: # of autoregressive terms</p></li>
+<li><p>d: # of nonseasonal differences needed for stationarity</p></li>
+<li><p>q: # of lagged forecast errors in prediction equation</p></li>
+</ul></li>
+<li><p>Stationary: observation properties do not depend of time observed</p></li>
+<li><p>First difference: changes from period at time t-1 to time t</p></li>
+<li><p>First order autoregression: using one previous value to predict future values in time-series data</p></li>
+</ul>
 </section>
-<section id="final-notes" class="level3">
-<h3 class="anchored" data-anchor-id="final-notes">Final Notes</h3>
-<p>Both of the aforementioned articles make a larger point that dig data solutions, such as Google Flu, are not substitutes for more traditional solutions like the CDC’s data collection, but are there to supplement more traditional solutions. Furthermore, the method of collection for many sources of big data, such as Twitter or Google searches, are not held held to the same standards that data collected for experimental anaylsis would be, and if the data itself is flawed, algorithms to parse the data will be flawed as well.</p>
+<section id="charts-for-plotting-time" class="level3">
+<h3 class="anchored" data-anchor-id="charts-for-plotting-time">Charts for Plotting Time</h3>
+<ul>
+<li><p>A line chart can be used to show the continuous change in a y-axis variable over time plotted on the x-axis, with line color or line type denoting relevant categorical variables</p></li>
+<li><p>An animation can be used for any plot type to show change in time with each frame corresponding to the data at one time</p></li>
+<li><p>A line plot can be used with data mapped on an x-y plane where each subsequent data point is observed at a different time and neighbor data points are connected by a line to show continuity</p></li>
+</ul>
 
 
 </section>
